@@ -97,7 +97,7 @@ function help () {
 
                +-+- Informations -+-+
       Repository of this script :
-        https://github.com/rito328
+        https://github.com/rito328/laravel-docker
 
       Author : rito
           Twitter https://twitter.com/rito328
