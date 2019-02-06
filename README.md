@@ -9,7 +9,13 @@ Docker development environment construction package for Laravel application. [fo
 - Docker Desktop for Mac: 2.0.0.2
 - Docker Engine: 18.09.1
 - Compose: 1.23.2
-
+## Environment to be built
+### app container
+- centos: Latest edition
+  - Apache: 2.4
+  - Laravel: Latest edition
+### DB container
+- MySQL: 8.0
 ## Project Structure
 ```
 laravel-docker/

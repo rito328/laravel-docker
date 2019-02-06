@@ -9,6 +9,13 @@ PHP Framework Laravel用 Docker開発環境構築パッケージ for Mac
 - Docker Desktop for Mac: 2.0.0.2
   - Engine: 18.09.1
   - Compose: 1.23.2
+## 構築される環境
+### appコンテナ
+- centos 最新版
+  - Apache 2.4
+  - Laravel 最新版
+### DBコンテナ
+- MySQL 8.0
 ## ソース構造
 ```
 laravel-docker/
