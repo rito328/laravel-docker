@@ -9,6 +9,8 @@ services:
       MYSQL_DATABASE: laravel_db
     ports:
       - 3306:3306
+    volumes:
+      - ./db/init:/docker-entrypoint-initdb.d
   app:
     container_name: laravel_app
     build: ./app/
