@@ -26,11 +26,15 @@ laravel-docker/
 │   │   ├── Dockerfile         ... Dockerfile for applications
 │   │   └── init
 │   │       ├── .env           ... Laravel env file
-│   │       └── app_setting.sh ... Shell for starting application server
+│   │       ├── .env.testing   ... Laravel env file for testing
+│   │       ├── app_setting.sh ... Shell for starting application server
+│   │       └── phpunit.xml    ... Laravel phpunit.xml
 │   ├── db
 │   │   ├── Dockerfile         ... Dockerfile for Database
-│   │   └── conf.d
-│   │       └── my.cnf         ... MySQL configuration file
+│   │   ├── conf.d
+│   │   │   └── my.cnf         ... MySQL configuration file
+│   │   └── init
+│   │       └── create_test_db.sh ... shellscript for create testing db
 │   └── docker-compose.yml     ... The app and db containers are managed by docker-compose.
 ├── order.sh                   ... ShellScript to operate Laravel and Docker
 └── src                        ... Laravel source and configuration file installation directory

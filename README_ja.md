@@ -26,11 +26,15 @@ laravel-docker/
 │   │   ├── Dockerfile         ... appサーバのDockerfile
 │   │   └── init
 │   │       ├── .env           ... Laravelのenvファイル
-│   │       └── app_setting.sh ... appサーバの初期動作を制御します。
+│   │       ├── .env.testing   ... Laravelのテスト用envファイル
+│   │       ├── app_setting.sh ... appサーバの初期動作を制御します。
+│   │       └── phpunit.xml    ... Laravel phpunit.xml
 │   ├── db
 │   │   ├── Dockerfile         ... dbサーバのDockerfile
-│   │   └── conf.d
-│   │       └── my.cnf         ... MySQLの設定ファイル
+│   │   ├── conf.d
+│   │   │   └── my.cnf         ... MySQLの設定ファイル
+│   │   └── init
+│   │       └── create_test_db.sh ... テスト用DBを作成する為のシェルスクリプト
 │   └── docker-compose.yml     ... appとdbのコンテナはdocker-composeによって制御されます。
 ├── order.sh                   ... LaravelとDockerを操作するシェルスクリプトです。
 └── src                        ... Laravelプロジェクトと初期設定ファイルはこのディレクトリへ設置されます。
