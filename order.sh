@@ -18,7 +18,6 @@ function setup () {
        && cd ../
 
       LARAVEL_NEW=1
-      cp -f docker/init/.env src/laravel/.env
       php src/laravel/artisan key:generate
   fi
 
@@ -34,6 +33,8 @@ function setup () {
   if test $LARAVEL_NEW -eq 1 ; then
      echo "Setting env"
      docker-compose exec app cp -f $PUB_DIR/init/.env $APP_DIR/.env
+     docker-compose exec app cp -f $PUB_DIR/init/.env.testing $APP_DIR/.env.testing
+     docker-compose exec app cp -f $PUB_DIR/init/phpunit.xml $APP_DIR/phpunit.xml
      docker-compose exec app php $APP_DIR/artisan key:generate
   fi
 
