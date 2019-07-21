@@ -13,7 +13,7 @@ PHP Framework Laravel用 Docker開発環境構築パッケージ for Mac
 ### appコンテナ
 - centos 最新版
   - Apache 2.4
-  - PHP 7.2
+  - PHP 7.3
   - Laravel 最新版
 ### DBコンテナ
 - MySQL 8.0

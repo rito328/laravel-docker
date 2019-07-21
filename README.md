@@ -13,7 +13,7 @@ Docker development environment construction package for Laravel application. [fo
 ### app container
 - centos: Latest edition
   - Apache: 2.4
-  - PHP: 7.2
+  - PHP: 7.3
   - Laravel: Latest edition
 ### DB container
 - MySQL: 8.0

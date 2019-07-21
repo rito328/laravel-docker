@@ -9,7 +9,7 @@ RUN wget https://github.com/jwilder/dockerize/releases/download/$DOCKERIZE_VERSI
 
 RUN yum -y install epel-release \
  && rpm -ivh http://rpms.famillecollet.com/enterprise/remi-release-7.rpm \
- && yum -y install --enablerepo=remi,remi-php72 php \
+ && yum -y install --enablerepo=remi,remi-php73 php \
 php-opcache php-devel php-mbstring php-mcrypt php-mysqlnd php-phpunit-PHPUnit \
 php-pecl-xdebug php-gd php-intl php-symfony php-pdo php-xml php-tokenizer php-pear php-zip
 
