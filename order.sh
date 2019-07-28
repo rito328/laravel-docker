@@ -15,10 +15,13 @@ function setup () {
       echo "Laravel install..."
       cd src \
        && composer create-project --prefer-dist laravel/laravel laravel \
-       && cd ../
+       && cd laravel/
 
       LARAVEL_NEW=1
-      php src/laravel/artisan key:generate
+      php artisan key:generate \
+      && composer require --dev laravel/dusk \
+      && php artisan dusk:install \
+      && cd ../../
   fi
 
   PUB_DIR=/var/www/html
@@ -34,8 +37,14 @@ function setup () {
      echo "Setting env"
      docker-compose exec app cp -f $PUB_DIR/init/.env $APP_DIR/.env
      docker-compose exec app cp -f $PUB_DIR/init/.env.testing $APP_DIR/.env.testing
+     docker-compose exec app cp -f $PUB_DIR/init/.env.dusk.local $APP_DIR/.env.dusk.local
+     docker-compose exec app cp -f $PUB_DIR/init/DuskTestCase.php $APP_DIR/tests/DuskTestCase.php
      docker-compose exec app cp -f $PUB_DIR/init/phpunit.xml $APP_DIR/phpunit.xml
      docker-compose exec app php $APP_DIR/artisan key:generate
+
+     echo "Google Chrome for Dusk install..."
+     docker-compose exec app cp /var/www/html/init/google-chrome.repo /etc/yum.repos.d/google-chrome.repo
+     docker-compose exec app yum -y install google-chrome-stable
   fi
 
   docker-compose exec app dockerize -wait tcp://db:3306
