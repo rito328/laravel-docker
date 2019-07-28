@@ -23,12 +23,15 @@ laravel-docker/
 ├── README.md
 ├── docker
 │   ├── app
-│   │   ├── Dockerfile         ... Dockerfile for applications
+│   │   ├── Dockerfile             ... Dockerfile for applications
 │   │   └── init
-│   │       ├── .env           ... Laravel env file
-│   │       ├── .env.testing   ... Laravel env file for testing
-│   │       ├── app_setting.sh ... Shell for starting application server
-│   │       └── phpunit.xml    ... Laravel phpunit.xml
+│   │       ├── .env               ... Laravel env file
+│   │       ├── .env.testing       ... Laravel env file for testing
+│   │       ├── .env.dusk.local    ... Laravel env file for Dusk
+│   │       ├── app_setting.sh     ... Shell for starting application server
+│   │       ├── DuskTestCase.php   ... Base TestCase Class for Dusk
+│   │       ├── google-chrome.repo ... Repository for google-chrome-stable
+│   │       └── phpunit.xml        ... Laravel phpunit.xml
 │   ├── db
 │   │   ├── Dockerfile         ... Dockerfile for Database
 │   │   ├── conf.d
