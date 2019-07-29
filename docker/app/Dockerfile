@@ -13,5 +13,9 @@ RUN yum -y install epel-release \
 php-opcache php-devel php-mbstring php-mcrypt php-mysqlnd php-phpunit-PHPUnit \
 php-pecl-xdebug php-gd php-intl php-symfony php-pdo php-xml php-tokenizer php-pear php-zip
 
+# Google Chrome for Dusk install
+COPY ./init/google-chrome.repo /etc/yum.repos.d/google-chrome.repo
+RUN yum -y install google-chrome-stable
+
 ENTRYPOINT ["/bin/bash", "-c"]
 CMD ["/var/www/html/init/app_setting.sh"]
