@@ -41,10 +41,6 @@ function setup () {
      docker-compose exec app cp -f $PUB_DIR/init/DuskTestCase.php $APP_DIR/tests/DuskTestCase.php
      docker-compose exec app cp -f $PUB_DIR/init/phpunit.xml $APP_DIR/phpunit.xml
      docker-compose exec app php $APP_DIR/artisan key:generate
-
-     echo "Google Chrome for Dusk install..."
-     docker-compose exec app cp /var/www/html/init/google-chrome.repo /etc/yum.repos.d/google-chrome.repo
-     docker-compose exec app yum -y install google-chrome-stable
   fi
 
   docker-compose exec app dockerize -wait tcp://db:3306
