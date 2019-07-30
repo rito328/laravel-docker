@@ -12,12 +12,16 @@ abstract class DuskTestCase extends BaseTestCase
 {
     use CreatesApplication;
 
+    private $dusk_env = '.env.dusk.local';
+
     public function setUp(): void
     {
         parent::setUp();
         $this->app = $this->createApplication();
-        $this->app->loadEnvironmentFrom('.env.dusk.local');
-        Artisan::call('config:cache');
+        if(file_exists($this->app->basePath($this->dusk_env))) {
+            $this->app->loadEnvironmentFrom($this->dusk_env);
+            Artisan::call('config:cache');
+        }
     }
 
     public function tearDown(): void
