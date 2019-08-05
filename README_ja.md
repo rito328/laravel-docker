@@ -15,6 +15,9 @@ PHP Framework Laravel用 Docker開発環境構築パッケージ for Mac
   - Apache 2.4
   - PHP 7.3
   - Laravel 最新版
+    - Dusk
+    - PHP_CodeSniffer
+  - Chrome(latest. for Dusk)
 ### DBコンテナ
 - MySQL 8.0
 ## ソース構造
@@ -31,6 +34,7 @@ laravel-docker/
 │   │       ├── app_setting.sh     ... appサーバの初期動作を制御します。
 │   │       ├── DuskTestCase.php   ... Duskテスト用の基底クラス
 │   │       ├── google-chrome.repo ... Rgoogle-chrome-stableインストールの為のリポジトリファイル
+│   │       ├── phpcs.xml          ... PHP_CodeSniffer ルール定義（PSR-12）
 │   │       └── phpunit.xml        ... Laravel phpunit.xml
 │   ├── db
 │   │   ├── Dockerfile         ... dbサーバのDockerfile

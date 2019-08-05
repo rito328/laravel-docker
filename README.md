@@ -15,6 +15,9 @@ Docker development environment construction package for Laravel application. [fo
   - Apache: 2.4
   - PHP: 7.3
   - Laravel: Latest edition
+    - Dusk
+    - PHP_CodeSniffer
+  - Chrome(latest. for Dusk)
 ### DB container
 - MySQL: 8.0
 ## Project Structure
@@ -31,6 +34,7 @@ laravel-docker/
 │   │       ├── app_setting.sh     ... Shell for starting application server
 │   │       ├── DuskTestCase.php   ... Base TestCase Class for Dusk
 │   │       ├── google-chrome.repo ... Repository for google-chrome-stable
+│   │       ├── phpcs.xml          ... PHP_CodeSniffer Rule definition（PSR-12）
 │   │       └── phpunit.xml        ... Laravel phpunit.xml
 │   ├── db
 │   │   ├── Dockerfile         ... Dockerfile for Database
