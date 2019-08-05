@@ -18,7 +18,7 @@ abstract class DuskTestCase extends BaseTestCase
     {
         parent::setUp();
         $this->app = $this->createApplication();
-        if(file_exists($this->app->basePath($this->dusk_env))) {
+        if (file_exists($this->app->basePath($this->dusk_env))) {
             $this->app->loadEnvironmentFrom($this->dusk_env);
             Artisan::call('config:cache');
         }
@@ -55,10 +55,12 @@ abstract class DuskTestCase extends BaseTestCase
         ]);
 
         return RemoteWebDriver::create(
-            'http://localhost:9515', DesiredCapabilities::chrome()->setCapability(
-            ChromeOptions::CAPABILITY,
-                $options
-            )
+            'http://localhost:9515',
+            DesiredCapabilities::chrome()
+                ->setCapability(
+                    ChromeOptions::CAPABILITY,
+                    $options
+                )
         );
 
     }
