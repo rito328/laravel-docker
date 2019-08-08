@@ -27,17 +27,20 @@ laravel-docker/
 ├── README.md
 ├── docker
 │   ├── app
-│   │   ├── Dockerfile             ... Dockerfile for applications
+│   │   ├── Dockerfile               ... Dockerfile for applications
 │   │   └── init
-│   │       ├── .env               ... Laravel env file
-│   │       ├── .env.testing       ... Laravel env file for testing
-│   │       ├── .env.dusk.local    ... Laravel env file for Dusk
-│   │       ├── app_setting.sh     ... Shell for starting application server
-│   │       ├── DuskTestCase.php   ... Base TestCase Class for Dusk
-│   │       ├── google-chrome.repo ... Repository for google-chrome-stable
-│   │       ├── phpcs.xml          ... PHP_CodeSniffer Rule definition（PSR-12）
-│   │       ├── phpstan.neon       ... Larastan Setting file（PHPStan）
-│   │       └── phpunit.xml        ... PHPUnit Setting file
+│   │       ├── composer
+│   │       │    ├── add_scripts.sh  ... Add scripts to composer.json
+│   │       │    └── add_scripts.txt ... Scripts to add to composer.json
+│   │       ├── .env                 ... Laravel env file
+│   │       ├── .env.testing         ... Laravel env file for testing
+│   │       ├── .env.dusk.local      ... Laravel env file for Dusk
+│   │       ├── app_setting.sh       ... Shell for starting application server
+│   │       ├── DuskTestCase.php     ... Base TestCase Class for Dusk
+│   │       ├── google-chrome.repo   ... Repository for google-chrome-stable
+│   │       ├── phpcs.xml            ... PHP_CodeSniffer Rule definition（PSR-12）
+│   │       ├── phpstan.neon         ... Larastan Setting file（PHPStan）
+│   │       └── phpunit.xml          ... PHPUnit Setting file
 │   ├── db
 │   │   ├── Dockerfile         ... Dockerfile for Database
 │   │   ├── conf.d

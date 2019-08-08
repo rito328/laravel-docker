@@ -27,17 +27,20 @@ laravel-docker/
 ├── README.md
 ├── docker
 │   ├── app
-│   │   ├── Dockerfile             ... appサーバのDockerfile
+│   │   ├── Dockerfile               ... appサーバのDockerfile
 │   │   └── init
-│   │       ├── .env               ... Laravelのenvファイル
-│   │       ├── .env.testing       ... Laravelのテスト用envファイル
-│   │       ├── .env.dusk.local    ... Laravel env file for Dusk
-│   │       ├── app_setting.sh     ... appサーバの初期動作を制御します。
-│   │       ├── DuskTestCase.php   ... Duskテスト用の基底クラス
-│   │       ├── google-chrome.repo ... Rgoogle-chrome-stableインストールの為のリポジトリファイル
-│   │       ├── phpcs.xml          ... PHP_CodeSniffer ルール定義（PSR-12）
-│   │       ├── phpstan.neon       ... Larastan 設定ファイル（PHPStan）
-│   │       └── phpunit.xml        ... PHPUnit 設定ファイル
+│   │       ├── composer
+│   │       │    ├── add_scripts.sh  ... composer.jsonへscriptsを追加する
+│   │       │    └── add_scripts.txt ... composer.jsonへ追加するScripts
+│   │       ├── .env                 ... Laravelのenvファイル
+│   │       ├── .env.testing         ... Laravelのテスト用envファイル
+│   │       ├── .env.dusk.local      ... Laravel env file for Dusk
+│   │       ├── app_setting.sh       ... appサーバの初期動作を制御します。
+│   │       ├── DuskTestCase.php     ... Duskテスト用の基底クラス
+│   │       ├── google-chrome.repo   ... Rgoogle-chrome-stableインストールの為のリポジトリファイル
+│   │       ├── phpcs.xml            ... PHP_CodeSniffer ルール定義（PSR-12）
+│   │       ├── phpstan.neon         ... Larastan 設定ファイル（PHPStan）
+│   │       └── phpunit.xml          ... PHPUnit 設定ファイル
 │   ├── db
 │   │   ├── Dockerfile         ... dbサーバのDockerfile
 │   │   ├── conf.d
