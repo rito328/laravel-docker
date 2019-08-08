@@ -96,6 +96,17 @@ sh order.sh conn app : Connect to app container.
 sh order.sh conn db  : Connect to MySQL in db container.
 sh order.sh help     : Display help.
 ```
+
+## Custom Composer Commands
+The following custom Composer commands are available with Laravel installed:
+```
+composer sniffer            : Syntax check with PHP_CodeSniffer (phpcs).
+composer sniffer-report-xml : Output syntax check result to XML file.
+composer sniffer-report-csv : Output syntax check result to CSV file.
+composer sniffer-rewrite    : Automatically correct errors detected by syntax checking with phpcbf.
+composer larastan           : Perform static code analysis (PHPStan) with Larastan.
+```
+
 ## Contributions
 Because it is a starter pack for a troublesome shop, it may be more convenient and the source should be still getting better. Of course, the bad part should be improved. Please send pull request by all means. We welcome your participation.
 

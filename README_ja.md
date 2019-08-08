@@ -98,6 +98,16 @@ sh order.sh conn db  : dbコンテナ内のMySQLへ接続します。
 sh order.sh help     : ヘルプを表示します。
 ```
 
+## カスタム Composerコマンド
+インストールされたLaravelでは、次のカスタムComposerコマンドを使用する事ができます。
+```
+composer sniffer            : PHP_CodeSniffer (phpcs)による構文チェックを実行する
+composer sniffer-report-xml : 構文チェックの結果をXMLファイルへ出力する
+composer sniffer-report-csv : 構文チェックの結果をCSVファイルへ出力する
+composer sniffer-rewrite    : 構文チェックでエラーとなったものを自動修正する（phpcbf）
+composer larastan           : Larastan（PHPStan）による静的コード解析を実行する
+```
+
 ## Contributions
 面倒くさがり屋の為のスターターパックですから、もっと便利になっても良いし、ソースはまだまだ良くなっていくはずです。もちろん、悪い部分は改善されるべきです。是非プルリクエストを送ってください。あなたの参加を歓迎します。
 
