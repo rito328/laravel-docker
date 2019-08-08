@@ -1,0 +1,15 @@
+       "sniffer": [\
+            "./vendor/bin/phpcs --standard=phpcs.xml ./"\
+        ],\
+        "sniffer-report-xml": [\
+            "./vendor/bin/phpcs --standard=phpcs.xml --report=xml --report-file=./sniffer-reports/report.xml ./"\
+        ],\
+        "sniffer-report-csv": [\
+            "./vendor/bin/phpcs --standard=phpcs.xml --report=csv --report-file=./sniffer-reports/report.csv ./"\
+        ],\
+        "sniffer-rewrite": [\
+            "./vendor/bin/phpcbf --standard=phpcs.xml ./"\
+        ],\
+        "larastan": [\
+            "@php artisan code:analyse --paths='app,tests' --level=max"\
+        ],
