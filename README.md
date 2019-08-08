@@ -11,12 +11,13 @@ Docker development environment construction package for Laravel application. [fo
   - Compose: 1.23.2 - 1.24.1
 ## Environment to be built
 ### app container
-- centos: Latest edition
+- CentOS: Latest edition
   - Apache: 2.4
   - PHP: 7.3
   - Laravel: Latest edition
     - Dusk
     - PHP_CodeSniffer
+    - Larastan
   - Chrome(latest. for Dusk)
 ### DB container
 - MySQL: 8.0
@@ -35,7 +36,8 @@ laravel-docker/
 │   │       ├── DuskTestCase.php   ... Base TestCase Class for Dusk
 │   │       ├── google-chrome.repo ... Repository for google-chrome-stable
 │   │       ├── phpcs.xml          ... PHP_CodeSniffer Rule definition（PSR-12）
-│   │       └── phpunit.xml        ... Laravel phpunit.xml
+│   │       ├── phpstan.neon       ... Larastan Setting file（PHPStan）
+│   │       └── phpunit.xml        ... PHPUnit Setting file
 │   ├── db
 │   │   ├── Dockerfile         ... Dockerfile for Database
 │   │   ├── conf.d

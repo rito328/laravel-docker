@@ -11,12 +11,13 @@ PHP Framework Laravel用 Docker開発環境構築パッケージ for Mac
   - Compose: 1.23.2 - 1.24.1
 ## 構築される環境
 ### appコンテナ
-- centos 最新版
+- CentOS 最新版
   - Apache 2.4
   - PHP 7.3
   - Laravel 最新版
     - Dusk
     - PHP_CodeSniffer
+    - Larastan
   - Chrome(latest. for Dusk)
 ### DBコンテナ
 - MySQL 8.0
@@ -35,7 +36,8 @@ laravel-docker/
 │   │       ├── DuskTestCase.php   ... Duskテスト用の基底クラス
 │   │       ├── google-chrome.repo ... Rgoogle-chrome-stableインストールの為のリポジトリファイル
 │   │       ├── phpcs.xml          ... PHP_CodeSniffer ルール定義（PSR-12）
-│   │       └── phpunit.xml        ... Laravel phpunit.xml
+│   │       ├── phpstan.neon       ... Larastan 設定ファイル（PHPStan）
+│   │       └── phpunit.xml        ... PHPUnit 設定ファイル
 │   ├── db
 │   │   ├── Dockerfile         ... dbサーバのDockerfile
 │   │   ├── conf.d
