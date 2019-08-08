@@ -11,7 +11,8 @@ RUN yum -y install epel-release \
  && rpm -ivh http://rpms.famillecollet.com/enterprise/remi-release-7.rpm \
  && yum -y install --enablerepo=remi,remi-php73 php \
 php-opcache php-devel php-mbstring php-mcrypt php-mysqlnd php-phpunit-PHPUnit \
-php-pecl-xdebug php-gd php-intl php-symfony php-pdo php-xml php-tokenizer php-pear php-zip
+php-pecl-xdebug php-gd php-intl php-symfony php-pdo php-xml php-tokenizer php-pear php-zip \
+ && yum -y install composer
 
 # Google Chrome for Dusk install
 COPY ./init/google-chrome.repo /etc/yum.repos.d/google-chrome.repo
