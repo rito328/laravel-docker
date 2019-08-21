@@ -32,9 +32,11 @@ laravel-docker/
 │   │       ├── composer
 │   │       │    ├── add_scripts.sh  ... composer.jsonへscriptsを追加する
 │   │       │    └── add_scripts.txt ... composer.jsonへ追加するScripts
-│   │       ├── .env                 ... Laravelのenvファイル
-│   │       ├── .env.testing         ... Laravelのテスト用envファイル
-│   │       ├── .env.dusk.local      ... Laravel env file for Dusk
+│   │       ├── env
+│   │       │    ├── .env                 ... Laravel envファイル
+│   │       │    ├── .env.testing         ... Laravel テスト用envファイル
+│   │       │    ├── .env.dusk.local      ... Laravel Dusk用envファイル
+│   │       │    └── add_key.sh           ... 生成されたキーをテスト用およびDusk用のenvファイルへ付与する
 │   │       ├── app_setting.sh       ... appサーバの初期動作を制御します。
 │   │       ├── DuskTestCase.php     ... Duskテスト用の基底クラス
 │   │       ├── google-chrome.repo   ... Rgoogle-chrome-stableインストールの為のリポジトリファイル
