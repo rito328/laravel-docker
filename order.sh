@@ -45,6 +45,7 @@ function setup () {
      docker-compose exec app cp -f $PUB_DIR/init/phpcs.xml $APP_DIR/phpcs.xml
      docker-compose exec app cp -f $PUB_DIR/init/phpstan.neon $APP_DIR/phpstan.neon
      docker-compose exec app php $APP_DIR/artisan key:generate
+     docker-compose exec app sh $PUB_DIR/init/env/add_key.sh
      docker-compose exec app sh $PUB_DIR/init/composer/add_scripts.sh
   fi
 
