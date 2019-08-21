@@ -37,9 +37,9 @@ function setup () {
 
   if test $LARAVEL_NEW -eq 1 ; then
      echo "Setting env"
-     docker-compose exec app cp -f $PUB_DIR/init/.env $APP_DIR/.env
-     docker-compose exec app cp -f $PUB_DIR/init/.env.testing $APP_DIR/.env.testing
-     docker-compose exec app cp -f $PUB_DIR/init/.env.dusk.local $APP_DIR/.env.dusk.local
+     docker-compose exec app cp -f $PUB_DIR/init/env/.env $APP_DIR/.env
+     docker-compose exec app cp -f $PUB_DIR/init/env/.env.testing $APP_DIR/.env.testing
+     docker-compose exec app cp -f $PUB_DIR/init/env/.env.dusk.local $APP_DIR/.env.dusk.local
      docker-compose exec app cp -f $PUB_DIR/init/DuskTestCase.php $APP_DIR/tests/DuskTestCase.php
      docker-compose exec app cp -f $PUB_DIR/init/phpunit.xml $APP_DIR/phpunit.xml
      docker-compose exec app cp -f $PUB_DIR/init/phpcs.xml $APP_DIR/phpcs.xml
