@@ -47,6 +47,7 @@ function setup () {
      docker-compose exec app php $APP_DIR/artisan key:generate
      docker-compose exec app sh $PUB_DIR/init/env/add_key.sh
      docker-compose exec app sh $PUB_DIR/init/composer/add_scripts.sh
+     docker-compose exec app sh $PUB_DIR/init/circleci/add_setting.sh
   fi
 
   docker-compose exec app dockerize -wait tcp://db:3306
