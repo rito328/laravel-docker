@@ -55,3 +55,27 @@ jobs:
           name: test - Unittest
           working_directory: src/laravel
           command: ./vendor/bin/phpunit
+
+      - run:
+          name: Install Chrome Driver
+          working_directory: src/laravel
+          command: php artisan dusk:chrome-driver 76
+
+      - run:
+          name: Start Chrome Driver
+          working_directory: src/laravel
+          command: ./vendor/laravel/dusk/bin/chromedriver-linux
+          background: true
+
+      - run:
+          name: Start Laravel Server
+          working_directory: src/laravel
+          command: php artisan serve
+          background: true
+
+      - run:
+          name: test - Dusk
+          working_directory: src/laravel
+          command: php artisan dusk
+          environment:
+            APP_URL: http://localhost:8000
