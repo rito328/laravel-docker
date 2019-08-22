@@ -1,0 +1,57 @@
+version: 2
+jobs:
+  build:
+    docker:
+      - image: circleci/php:7.3-stretch-node-browsers
+      - image: circleci/mysql:8.0.17
+        command: mysqld --default-authentication-plugin=mysql_native_password
+    environment:
+      - APP_DEBUG: true
+      - APP_ENV: testing
+      - APP_KEY: base64:YH6UBkmtppLSQjVqSA+fnAFGAdKzpU3lKKOM5GKb2W0=
+      - DB_CONNECTION: circleci
+      - MYSQL_ALLOW_EMPTY_PASSWORD: true
+
+    working_directory: ~/repo
+
+    steps:
+      - checkout
+
+      - run:
+          name: Install PHP Extensions
+          command: sudo docker-php-ext-install pdo_mysql
+
+      - restore_cache:
+          keys:
+            - v1-dependencies-{{ checksum "src/laravel/composer.json" }}
+            - v1-dependencies-
+
+      - run:
+          name: composer install
+          working_directory: src/laravel
+          command: composer install -n --prefer-dist
+
+      - save_cache:
+          paths:
+            - ./vendor
+          key: v1-dependencies-{{ checksum "src/laravel/composer.json" }}
+
+      - run:
+          name: Migration & Seeding
+          working_directory: src/laravel
+          command: php artisan migrate --seed
+
+      - run:
+          name: test - Coding rules check
+          working_directory: src/laravel
+          command: ./vendor/bin/phpcs --standard=phpcs.xml ./
+
+      - run:
+          name: test - Static code analysis
+          working_directory: src/laravel
+          command: php artisan code:analyse --paths='app,tests' --level=max
+
+      - run:
+          name: test - Unittest
+          working_directory: src/laravel
+          command: ./vendor/bin/phpunit
