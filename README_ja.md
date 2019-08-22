@@ -25,10 +25,15 @@ PHP Framework Laravel用 Docker開発環境構築パッケージ for Mac
 ```
 laravel-docker/
 ├── README.md
+├── .circleci
+│   ├── config.yml
 ├── docker
 │   ├── app
 │   │   ├── Dockerfile               ... appサーバのDockerfile
 │   │   └── init
+│   │       ├── circleci
+│   │       │    ├── add_setting.sh  ... コネクション設定を追加するScropts
+│   │       │    └── setting.txt     ... コネクション設定収録
 │   │       ├── composer
 │   │       │    ├── add_scripts.sh  ... composer.jsonへscriptsを追加する
 │   │       │    └── add_scripts.txt ... composer.jsonへ追加するScripts

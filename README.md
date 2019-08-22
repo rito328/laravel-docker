@@ -25,10 +25,15 @@ Docker development environment construction package for Laravel application. [fo
 ```
 laravel-docker/
 ├── README.md
+├── .circleci
+│   ├── config.yml
 ├── docker
 │   ├── app
 │   │   ├── Dockerfile               ... Dockerfile for applications
 │   │   └── init
+│   │       ├── circleci
+│   │       │    ├── add_setting.sh  ... Add setting to database config
+│   │       │    └── setting.txt     ... Scripts to add to database config
 │   │       ├── composer
 │   │       │    ├── add_scripts.sh  ... Add scripts to composer.json
 │   │       │    └── add_scripts.txt ... Scripts to add to composer.json
