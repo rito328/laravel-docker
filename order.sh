@@ -50,7 +50,7 @@ function setup () {
      docker-compose exec app sh $PUB_DIR/init/circleci/add_setting.sh
   fi
 
-  docker-compose exec app dockerize -wait tcp://db:3306
+  docker-compose exec app dockerize -wait tcp://db:3306 -timeout 30s
   docker-compose exec app php $APP_DIR/artisan migrate --seed
 
   echo "Laravel Server starting..."
