@@ -1,6 +1,6 @@
 FROM centos:latest
 
-RUN yum -y update && yum -y install httpd openssl unzip wget
+RUN yum -y install yum-utils && package-cleanup --oldkernels && yum -y update && yum -y install httpd openssl unzip wget
 
 ENV DOCKERIZE_VERSION v0.6.1
 RUN wget https://github.com/jwilder/dockerize/releases/download/$DOCKERIZE_VERSION/dockerize-linux-amd64-$DOCKERIZE_VERSION.tar.gz \
