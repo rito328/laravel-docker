@@ -6,14 +6,14 @@ Docker development environment construction package for Laravel application. [fo
 - composer (If it is not installed, it will be installed at setup time.)
 ## Operation confirmed environment
 - macOS Mojave
-- Docker Desktop for Mac: 2.0.0.2 - 2.1.0.0
-  - Engine: 18.09.1 - 10.03.1
-  - Compose: 1.23.2 - 1.24.1
+- Docker Desktop for Mac: 2.2.0.4
+  - Engine: 19.03.8
+  - Compose: 1.25.4
 ## Environment to be built
 ### app container
-- CentOS: Latest edition
-  - Apache: 2.4
-  - PHP: 7.3
+- CentOS 8
+  - Apache 2.4
+  - PHP 7.4
   - Laravel: Latest edition
     - Dusk
     - PHP_CodeSniffer

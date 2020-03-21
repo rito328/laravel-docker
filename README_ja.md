@@ -6,14 +6,14 @@ PHP Framework Laravel用 Docker開発環境構築パッケージ for Mac
 - composer (インストールしていない場合は、セットアップ時に導入されます。)
 ## 動作確認済み環境
 - macOS Mojave
-- Docker Desktop for Mac: 2.0.0.2 - 2.1.0.0
-  - Engine: 18.09.1 - 10.03.1
-  - Compose: 1.23.2 - 1.24.1
+- Docker Desktop for Mac: 2.2.0.4
+  - Engine: 19.03.8
+  - Compose: 1.25.4
 ## 構築される環境
 ### appコンテナ
-- CentOS 最新版
+- CentOS 8
   - Apache 2.4
-  - PHP 7.3
+  - PHP 7.4
   - Laravel 最新版
     - Dusk
     - PHP_CodeSniffer
