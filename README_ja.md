@@ -6,9 +6,9 @@ PHP Framework Laravel用 Docker開発環境構築パッケージ for Mac
 - composer (インストールしていない場合は、セットアップ時に導入されます。)
 ## 動作確認済み環境
 - macOS Mojave
-- Docker Desktop for Mac: 2.2.0.4
+- Docker Desktop for Mac: 2.3.0.3
   - Engine: 19.03.8
-  - Compose: 1.25.4
+  - Compose: 1.25.5
 ## 構築される環境
 ### appコンテナ
 - CentOS 8
@@ -21,6 +21,8 @@ PHP Framework Laravel用 Docker開発環境構築パッケージ for Mac
   - Chrome(latest. for Dusk)
 ### DBコンテナ
 - MySQL 8.0
+### Mailコンテナ
+- MailHog
 ## ソース構造
 ```
 laravel-docker/
@@ -76,6 +78,10 @@ sh order.sh setup
 セットアップが完了したら、localhostにアクセスします。
 ```
 http://localhost/
+```
+送信したメールは MailHog で確認できます。
+```
+http://localhost:8025
 ```
 一度セットアップを行えば、あとはstart/stopで動作を制御できます。
 ```

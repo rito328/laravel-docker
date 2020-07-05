@@ -26,3 +26,9 @@ services:
     tty: true
     depends_on:
       - db
+  mailhog:
+    container_name: laravel_mail
+    image: mailhog/mailhog
+    ports:
+      - "8025:8025"
+      - "1025:1025"

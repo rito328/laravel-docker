@@ -6,9 +6,9 @@ Docker development environment construction package for Laravel application. [fo
 - composer (If it is not installed, it will be installed at setup time.)
 ## Operation confirmed environment
 - macOS Mojave
-- Docker Desktop for Mac: 2.2.0.4
+- Docker Desktop for Mac: 2.3.0.3
   - Engine: 19.03.8
-  - Compose: 1.25.4
+  - Compose: 1.25.5
 ## Environment to be built
 ### app container
 - CentOS 8
@@ -21,6 +21,8 @@ Docker development environment construction package for Laravel application. [fo
   - Chrome(latest. for Dusk)
 ### DB container
 - MySQL: 8.0
+### Email Client container
+- MailHog
 ## Project Structure
 ```
 laravel-docker/
@@ -75,6 +77,10 @@ sh order.sh setup
 When setup is complete, access localhost.
 ```
 http://localhost/
+```
+You can check the sent email with MailHog.
+```
+http://localhost:8025
 ```
 Once setup is done, operation can be controlled by start / stop.
 ```
