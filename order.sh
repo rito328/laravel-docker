@@ -1,5 +1,8 @@
 #!/usr/bin/env bash
 
+PUB_DIR=/var/www/html
+APP_DIR=$PUB_DIR/laravel
+
 function setup () {
   COMPOSER_PATH=`which composer`
   LARAVEL_NEW=0
@@ -25,9 +28,6 @@ function setup () {
       && composer require --dev nunomaduro/larastan \
       && cd ../../
   fi
-
-  PUB_DIR=/var/www/html
-  APP_DIR=$PUB_DIR/laravel
 
   echo "Docker starting..."
 
@@ -93,6 +93,18 @@ function connect_mysql () {
 
   docker-compose exec db mysql -u$USER -p$PASSWORD
 }
+function clear_app_cache () {
+    cd docker
+    docker-compose exec app php $APP_DIR/artisan cache:clear
+    docker-compose exec app php $APP_DIR/artisan config:clear
+    docker-compose exec app php $APP_DIR/artisan route:clear
+    docker-compose exec app php $APP_DIR/artisan view:clear
+    docker-compose exec app php $APP_DIR/artisan clear-compiled
+    cd ../src/laravel && composer dump-autoload
+    rm -f bootstrap/cache/config.php \
+           bootstrap/cache/services.php \
+           bootstrap/cache/packages.php
+}
 function help () {
   echo "
   +--------------------------------------------------+
@@ -106,6 +118,7 @@ function help () {
       conn    :
            app : Connect to app container.
            db  : Connect to MySQL in db container.
+      clear   : Clear Laravel cache.
       help    : Display help.
 
                +-+- Informations -+-+
@@ -136,13 +149,14 @@ function error_msg () {
 }
 
 case "$1" in
-  "setup"   ) setup       ;;
-  "start"   ) setup       ;;
-  "stop"    ) stop        ;;
-  "restart" ) restart     ;;
-  "destroy" ) destroy     ;;
-  "conn"    ) connect $2  ;;
-  "help"    ) help        ;;
-  ""        ) error_msg   ;;
+  "setup"   ) setup           ;;
+  "start"   ) setup           ;;
+  "stop"    ) stop            ;;
+  "restart" ) restart         ;;
+  "destroy" ) destroy         ;;
+  "conn"    ) connect $2      ;;
+  "clear"   ) clear_app_cache ;;
+  "help"    ) help            ;;
+  ""        ) error_msg       ;;
 esac
 
