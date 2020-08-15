@@ -27,6 +27,10 @@
     <exclude-pattern>/app/Console/Kernel.php</exclude-pattern>
     <exclude-pattern>/tests/CreatesApplication.php</exclude-pattern>
 
+    <!-- Excludes source code warnings specific to the laravel framework. -->
+    <rule ref="PSR12.Traits.UseDeclaration.MultipleImport">
+        <exclude-pattern>app/Http/Controllers/Controller.php</exclude-pattern>
+    </rule>
     <!-- Under the tests directory, exclude the camel case check of the method name. -->
     <rule ref="PSR1.Methods.CamelCapsMethodName.NotCamelCaps">
         <exclude-pattern>*/tests/*</exclude-pattern>
