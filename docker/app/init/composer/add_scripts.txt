@@ -1,13 +1,13 @@
-       "sniffer": [\
+       "lint": [\
             "./vendor/bin/phpcs --standard=phpcs.xml ./"\
         ],\
-        "sniffer-report-xml": [\
+        "lint-report-xml": [\
             "./vendor/bin/phpcs --standard=phpcs.xml --report=xml --report-file=./sniffer-reports/report.xml ./"\
         ],\
-        "sniffer-report-csv": [\
+        "lint-report-csv": [\
             "./vendor/bin/phpcs --standard=phpcs.xml --report=csv --report-file=./sniffer-reports/report.csv ./"\
         ],\
-        "sniffer-rewrite": [\
+        "lint-rewrite": [\
             "./vendor/bin/phpcbf --standard=phpcs.xml ./"\
         ],\
         "analyse": [\

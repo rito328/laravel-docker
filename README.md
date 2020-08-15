@@ -113,11 +113,11 @@ sh order.sh help     : Display help.
 ## Custom Composer Commands
 The following custom Composer commands are available with Laravel installed:
 ```
-composer sniffer            : Syntax check with PHP_CodeSniffer (phpcs).
-composer sniffer-report-xml : Output syntax check result to XML file.
-composer sniffer-report-csv : Output syntax check result to CSV file.
-composer sniffer-rewrite    : Automatically correct errors detected by syntax checking with phpcbf.
-composer analyse            : Perform static code analysis in PHPStan.
+composer lint            : Syntax check with PHP_CodeSniffer (phpcs).
+composer lint-report-xml : Output syntax check result to XML file.
+composer lint-report-csv : Output syntax check result to CSV file.
+composer lint-rewrite    : Automatically correct errors detected by syntax checking with phpcbf.
+composer analyse         : Perform static code analysis in PHPStan.
 ```
 
 ## Contributions

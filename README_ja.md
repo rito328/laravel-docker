@@ -114,11 +114,11 @@ sh order.sh help     : ヘルプを表示します。
 ## カスタム Composerコマンド
 インストールされたLaravelでは、次のカスタムComposerコマンドを使用する事ができます。
 ```
-composer sniffer            : PHP_CodeSniffer (phpcs)による構文チェックを実行する
-composer sniffer-report-xml : 構文チェックの結果をXMLファイルへ出力する
-composer sniffer-report-csv : 構文チェックの結果をCSVファイルへ出力する
-composer sniffer-rewrite    : 構文チェックでエラーとなったものを自動修正する（phpcbf）
-composer analyse            : PHPStan による静的コード解析を実行する
+composer lint            : PHP_CodeSniffer (phpcs)による構文チェックを実行する
+composer lint-report-xml : 構文チェックの結果をXMLファイルへ出力する
+composer lint-report-csv : 構文チェックの結果をCSVファイルへ出力する
+composer lint-rewrite    : 構文チェックでエラーとなったものを自動修正する（phpcbf）
+composer analyse         : PHPStan による静的コード解析を実行する
 ```
 
 ## Contributions
