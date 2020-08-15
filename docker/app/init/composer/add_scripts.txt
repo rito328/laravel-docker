@@ -10,6 +10,6 @@
         "sniffer-rewrite": [\
             "./vendor/bin/phpcbf --standard=phpcs.xml ./"\
         ],\
-        "larastan": [\
-            "@php artisan code:analyse --paths='app,tests' --level=max"\
+        "analyse": [\
+            "./vendor/bin/phpstan analyse"\
         ],

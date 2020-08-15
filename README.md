@@ -17,7 +17,7 @@ Docker development environment construction package for Laravel application. [fo
   - Laravel: Latest edition
     - Dusk
     - PHP_CodeSniffer
-    - Larastan
+    - PHPStan with Larastan
   - Chrome(latest. for Dusk)
 ### DB container
 - MySQL: 8.0
@@ -117,7 +117,7 @@ composer sniffer            : Syntax check with PHP_CodeSniffer (phpcs).
 composer sniffer-report-xml : Output syntax check result to XML file.
 composer sniffer-report-csv : Output syntax check result to CSV file.
 composer sniffer-rewrite    : Automatically correct errors detected by syntax checking with phpcbf.
-composer larastan           : Perform static code analysis (PHPStan) with Larastan.
+composer analyse            : Perform static code analysis in PHPStan.
 ```
 
 ## Contributions

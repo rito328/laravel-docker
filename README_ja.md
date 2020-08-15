@@ -17,7 +17,7 @@ PHP Framework Laravel用 Docker開発環境構築パッケージ for Mac
   - Laravel 最新版
     - Dusk
     - PHP_CodeSniffer
-    - Larastan
+    - PHPStan with Larastan
   - Chrome(latest. for Dusk)
 ### DBコンテナ
 - MySQL 8.0
@@ -118,7 +118,7 @@ composer sniffer            : PHP_CodeSniffer (phpcs)による構文チェック
 composer sniffer-report-xml : 構文チェックの結果をXMLファイルへ出力する
 composer sniffer-report-csv : 構文チェックの結果をCSVファイルへ出力する
 composer sniffer-rewrite    : 構文チェックでエラーとなったものを自動修正する（phpcbf）
-composer larastan           : Larastan（PHPStan）による静的コード解析を実行する
+composer analyse            : PHPStan による静的コード解析を実行する
 ```
 
 ## Contributions
