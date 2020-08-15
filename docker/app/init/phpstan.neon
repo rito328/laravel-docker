@@ -5,3 +5,10 @@ parameters:
     paths:
         - app
         - tests
+
+    # A warning is given in the initial source code of Laravel. If you want to see this warning, or when you no longer need it, delete it.
+    checkMissingIterableValueType: false
+
+    # A warning is given in the initial source code of Laravel. If you want to see this warning, or when you no longer need it, delete it.
+    excludes_analyse:
+        - app/Http/Middleware/Authenticate.php
