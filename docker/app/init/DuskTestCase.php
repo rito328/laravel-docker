@@ -8,22 +8,34 @@ use Facebook\WebDriver\Remote\RemoteWebDriver;
 use Facebook\WebDriver\Remote\DesiredCapabilities;
 use Illuminate\Support\Facades\Artisan;
 
+/**
+ * Class DuskTestCase
+ *
+ * @package Tests
+ */
 abstract class DuskTestCase extends BaseTestCase
 {
     use CreatesApplication;
 
-    private $dusk_env = '.env.dusk.local';
+    /** @var string */
+    private $duskEnv = '.env.dusk.local';
 
+    /**
+     * @return void
+     */
     public function setUp(): void
     {
         parent::setUp();
         $this->app = $this->createApplication();
-        if (file_exists($this->app->basePath($this->dusk_env))) {
-            $this->app->loadEnvironmentFrom($this->dusk_env);
+        if (file_exists($this->app->basePath($this->duskEnv))) {
+            $this->app->loadEnvironmentFrom($this->duskEnv);
             Artisan::call('config:cache');
         }
     }
 
+    /**
+     * @return void
+     */
     public function tearDown(): void
     {
         Artisan::call('config:clear');
