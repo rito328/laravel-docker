@@ -71,7 +71,7 @@ cd /path/to/laravel-docker
 // When you start setup, Laravel will be installed and the Docker environment will be launched.
 sh order.sh setup
 ```
-> !! POINT !!
+> !! memo !!
 >> Since migration and seeding are executed during Laravel setup, initial data can be input by defining these in advance.
 
 When setup is complete, access localhost.
@@ -105,10 +105,13 @@ sh order.sh start    : Alias for setup.
 sh order.sh stop     : Stop the container.
 sh order.sh restart  : Reboot the container.
 sh order.sh destroy  : Delete containers and images.
+sh order.sh prune    : Delete all container volume networks that are not in use.
 sh order.sh conn app : Connect to app container.
 sh order.sh conn db  : Connect to MySQL in db container.
 sh order.sh help     : Display help.
 ```
+> !! important !!
+>> `sh order.sh prune` affects the entire docker environment beyond the laravel-docker range. Use it only when you want to delete all container volume networks that you no longer use.
 
 ## Custom Composer Commands
 The following custom Composer commands are available with Laravel installed:
@@ -119,9 +122,6 @@ composer lint-report-csv : Output syntax check result to CSV file.
 composer lint-rewrite    : Automatically correct errors detected by syntax checking with phpcbf.
 composer analyse         : Perform static code analysis in PHPStan.
 ```
-
-## Contributions
-Because it is a starter pack for a troublesome shop, it may be more convenient and the source should be still getting better. Of course, the bad part should be improved. Please send pull request by all means. We welcome your participation.
 
 ## Message
 This package made Laravel easy to try under Docker environment.

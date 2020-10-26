@@ -105,6 +105,16 @@ function clear_app_cache () {
            bootstrap/cache/services.php \
            bootstrap/cache/packages.php
 }
+function docker_prune () {
+    # Bulk deletion of stopped containers
+    yes | docker container prune
+
+    # Bulk deletion of unused Volume
+    yes | docker volume prune
+
+    # Bulk deletion of unused networks
+    yes | docker network prune
+}
 function help () {
   echo "
   +--------------------------------------------------+
@@ -119,6 +129,11 @@ function help () {
            app : Connect to app container.
            db  : Connect to MySQL in db container.
       clear   : Clear Laravel cache.
+      prune   : Delete all container volume networks
+                that are not in use.
+                [Caution]
+                This command affects your entire
+                docker environment.
       help    : Display help.
 
                +-+- Informations -+-+
@@ -156,6 +171,7 @@ case "$1" in
   "destroy" ) destroy         ;;
   "conn"    ) connect $2      ;;
   "clear"   ) clear_app_cache ;;
+  "prune"   ) docker_prune    ;;
   "help"    ) help            ;;
   ""        ) error_msg       ;;
 esac
