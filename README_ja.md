@@ -101,15 +101,16 @@ Laravelプロジェクトは外部ボリュームからマウントされるた�
 
 ## コマンド一覧
 ```
-sh order.sh setup    : Laravelインストール・Docker環境構築を行います。
-sh order.sh start    : setup のエイリアスです。
-sh order.sh stop     : コンテナを停止します。
-sh order.sh restart  : コンテナを再起動します。
-sh order.sh destroy  : コンテナ・イメージを削除します。
-sh order.sh prune    : 使用中ではないすべてのコンテナ・ボリューム・ネットワークを削除します。
-sh order.sh conn app : appコンテナ（Webサーバ）へ接続します。
-sh order.sh conn db  : dbコンテナ内のMySQLへ接続します。
-sh order.sh help     : ヘルプを表示します。
+sh order.sh setup      : Laravelインストール・Docker環境構築を行います。
+sh order.sh start      : setup のエイリアスです。
+sh order.sh stop       : コンテナを停止します。
+sh order.sh restart    : コンテナを再起動します。
+sh order.sh destroy    : コンテナ・イメージを削除します。
+sh order.sh prune      : 使用中ではないすべてのコンテナ・ボリューム・ネットワークを削除します。
+sh order.sh conn app   : appコンテナ（Webサーバ）へ接続します。
+sh order.sh conn db    : dbコンテナ（DBサーバ）へ接続します。
+sh order.sh conn mysql : dbコンテナ内のMySQLへ接続します。
+sh order.sh help       : ヘルプを表示します。
 ```
 > !! 重要 !!
 >> `sh order.sh prune` は laravel-docker の範囲以上の docker 環境全体に影響を及ぼします。使用しなくなったコンテナ・ボリューム・ネットワークを全て削除したい時のみに使用してください。

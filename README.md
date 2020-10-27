@@ -100,15 +100,16 @@ The Laravel project mounts from an external volume, so it will be persisted.
 
 ## Commands
 ```
-sh order.sh setup    : Set up Laravel Docker.
-sh order.sh start    : Alias for setup.
-sh order.sh stop     : Stop the container.
-sh order.sh restart  : Reboot the container.
-sh order.sh destroy  : Delete containers and images.
-sh order.sh prune    : Delete all container volume networks that are not in use.
-sh order.sh conn app : Connect to app container.
-sh order.sh conn db  : Connect to MySQL in db container.
-sh order.sh help     : Display help.
+sh order.sh setup      : Set up Laravel Docker.
+sh order.sh start      : Alias for setup.
+sh order.sh stop       : Stop the container.
+sh order.sh restart    : Reboot the container.
+sh order.sh destroy    : Delete containers and images.
+sh order.sh prune      : Delete all container volume networks that are not in use.
+sh order.sh conn app   : Connect to app container.
+sh order.sh conn db    : Connect to db container.
+sh order.sh conn mysql : Connect to MySQL in db container.
+sh order.sh help       : Display help.
 ```
 > !! important !!
 >> `sh order.sh prune` affects the entire docker environment beyond the laravel-docker range. Use it only when you want to delete all container volume networks that you no longer use.

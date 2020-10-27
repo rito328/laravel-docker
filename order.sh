@@ -88,13 +88,17 @@ function destroy() {
 }
 function connect () {
   case "$1" in
-    "app" ) connect_app   ;;
-    "db"  ) connect_mysql ;;
-    ""    ) echo "Please specify the second argument. (app | db)"
+    "app"   ) connect_app_container ;;
+    "db"    ) connect_db_container  ;;
+    "mysql" ) connect_mysql         ;;
+    ""      ) echo "Please specify the second argument. (app | db)"
   esac
 }
-function connect_app () {
+function connect_app_container () {
   docker exec -it laravel_app /bin/bash
+}
+function connect_db_container () {
+  docker exec -it laravel_db /bin/bash
 }
 function connect_mysql () {
   cd docker
@@ -134,8 +138,9 @@ function help () {
       restart : Reboot the container.
       destroy : Delete containers and images.
       conn    :
-           app : Connect to app container.
-           db  : Connect to MySQL in db container.
+           app   : Connect to app container.
+           db    : Connect to db container.
+           mysql : Connect to MySQL in db container.
       clear   : Clear Laravel cache.
       prune   : Delete all container volume networks
                 that are not in use.
