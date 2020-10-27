@@ -11,6 +11,7 @@ services:
       - 3306:3306
     volumes:
       - ./db/init:/docker-entrypoint-initdb.d
+      - ./db/user:/root/mysql
   app:
     container_name: laravel_app
     build: ./app/

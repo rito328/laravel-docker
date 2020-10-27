@@ -3,6 +3,9 @@
 PUB_DIR=/var/www/html
 APP_DIR=$PUB_DIR/laravel
 
+MYSQL_LOGIN_FILE_PATH=/root/mysql/root.cnf
+DUMP_STRUCTURE_SQL_PATH=./db/init/dump_structure.sql
+
 function setup () {
   COMPOSER_PATH=`which composer`
   LARAVEL_NEW=0
@@ -53,6 +56,8 @@ function setup () {
   docker-compose exec app dockerize -wait tcp://db:3306 -timeout 30s
   docker-compose exec app php $APP_DIR/artisan migrate --seed
 
+  create_testing_db_tables
+
   echo "Laravel Server starting..."
   docker-compose exec -d app php $APP_DIR/artisan serve --host 0.0.0.0
 
@@ -62,6 +67,12 @@ function setup () {
      Please Access http://localhost/
   +-----------------------------------+
   "
+}
+function create_testing_db_tables () {
+  echo "Creating testing database tables ..."
+  docker-compose exec db mysqldump --defaults-extra-file=$MYSQL_LOGIN_FILE_PATH laravel_db -d > $DUMP_STRUCTURE_SQL_PATH
+  docker-compose exec -T db mysql --defaults-extra-file=$MYSQL_LOGIN_FILE_PATH test_laravel_db < $DUMP_STRUCTURE_SQL_PATH
+  rm -f $DUMP_STRUCTURE_SQL_PATH
 }
 function stop () {
   cd docker
@@ -86,12 +97,9 @@ function connect_app () {
   docker exec -it laravel_app /bin/bash
 }
 function connect_mysql () {
-  USER=root
-  PASSWORD=Password@1234
-
   cd docker
 
-  docker-compose exec db mysql -u$USER -p$PASSWORD
+  docker-compose exec db mysql --defaults-extra-file=$MYSQL_LOGIN_FILE_PATH
 }
 function clear_app_cache () {
     cd docker
